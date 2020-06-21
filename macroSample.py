@@ -15,6 +15,8 @@ action.send_keys('madchick').perform()
 driver.find_element_by_css_selector('.CwaK9').click()
 time.sleep(2)
 
+send_button = driver.find_element_by_css_selector('gu.Up')
+
 (
 action
 .key_down(Keys.TAB)
@@ -22,5 +24,8 @@ action
 .send_keys('제목입니다').pause(2).key_down(Keys.TAB)
 .send_keys('abcd').pause(2).key_down(Keys.ENTER)
 .key_down(Keys.SHIFT).send_keys('abcd').key_up(Keys.SHIFT)
+.move_to_element(send_button).click()
 .perform()
 )
+
+action.reset_actions()
