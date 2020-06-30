@@ -143,3 +143,5 @@ cython_debug/
 
 chromedriver
 phantomjs
+
+.DS_Store
