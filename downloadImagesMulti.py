@@ -46,6 +46,9 @@ for k, v in people.items():
             no_of_pagedowns -= 1
         
         soup = bs(driver.page_source,'html.parser')
+        file = open('DS.html', 'w')
+        file.write(driver.page_source)
+        file.close()
         driver.quit() '''
 
         html = urlopen(url)
