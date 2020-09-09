@@ -41,14 +41,13 @@ from selenium.webdriver.common.keys import Keys
 import time
 
 
-'''
+
 target = {'puppy': ['강다니엘', '백현', '박보검', '송중기'],
           'cat': ['황민현', '시우민', '이종석', '강동원', '이종석', '이준기'],
           'bear': ['마동석', '조진웅', '조세호', '안재홍'],
           'dinosaur': ['윤두준', '이민기', '육성재', '공유', '김우빈'],
           'rabbit': ['정국', '바비', '박지훈', '수호']}
-'''
-target = {'puppy': ['강다니엘', '백현']}
+# target = {'puppy': ['강다니엘', '백현']}
 
 downloadFolder = './img/'
 
