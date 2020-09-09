@@ -44,6 +44,8 @@ for k, v in target.items():
         url = baseUrl + quote_plus(person)
 
         options = webdriver.ChromeOptions()
+        options.add_argument("enable-automation")
+        options.add_argument("dns-prefetch-disable")
         options.add_argument('headless')
         options.add_argument('window-size=1920x1080')
         options.add_argument("disable-gpu")
