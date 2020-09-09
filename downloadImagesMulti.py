@@ -9,6 +9,8 @@ target을 엑셀파일에서 읽어오기
 
 중단된 경우 다시 실행시키면 완료된 부분부터 시작하도록 개선
 
+https://blog.testproject.io/2018/02/20/chrome-headless-selenium-python-linux-servers/
+
 '''
 
 
@@ -45,6 +47,10 @@ for k, v in target.items():
         options.add_argument('headless')
         options.add_argument('window-size=1920x1080')
         options.add_argument("disable-gpu")
+        options.add_argument("no-sandbox") 
+        options.add_argument("disable-setuid-sandbox") 
+        options.add_argument("disable-dev-shm-using") 
+        options.add_argument("disable-extensions")         
         driver = webdriver.Chrome('./chromedriver', options=options)
         print('\n' + nameTag + ' - search & feching images... (max around 2,500) - ' + k + ' : ' + person)
         driver.get(url)
