@@ -1,55 +1,61 @@
-'''
-
-구글 다운로드 추가
-# https://tiktikeuro.tistory.com/174
-# https://github.com/hellock/icrawler
-# https://github.com/YoongiKim/AutoCrawler
-
-target을 엑셀파일에서 읽어오기
-
-중단된 경우 다시 실행시키면 완료된 부분부터 시작하도록 개선
-
-리눅스에서 실행 안되는 문제 점검
-https://blog.testproject.io/2018/02/20/chrome-headless-selenium-python-linux-servers/
-
-'''
-
-
-
-'''
-
-크롬 웹브라우저 설치
-
-selenium 설치
-pip install -U selenium
-
-크롬 드라이버 설치
-https://chromedriver.chromium.org/downloads
-설치된 크롬과 동일한 버전으로 설치
-
-'''
-
-
-
 from urllib.request import urlopen
 from bs4 import BeautifulSoup as bs
 from urllib.parse import quote_plus
 from pathlib import Path
 
+from openpyxl import load_workbook
+
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+
+import sys
 import time
 
 
 
-target = {'puppy': ['강다니엘', '백현', '박보검', '송중기'],
-          'cat': ['황민현', '시우민', '이종석', '강동원', '이종석', '이준기'],
-          'bear': ['마동석', '조진웅', '조세호', '안재홍'],
-          'dinosaur': ['윤두준', '이민기', '육성재', '공유', '김우빈'],
-          'rabbit': ['정국', '바비', '박지훈', '수호']}
-# target = {'puppy': ['강다니엘', '백현']}
+'''
+# 테스트용 데이터
+target = {'강아지': ['강아지', '멍멍이', '댕댕이']}
+searchKeyword = '강아지'
+searchKeywordList = []
+searchKeywordList.append('강아지')
+searchKeywordList.append('멍멍이')
+searchKeywordList.append('댕댕이')
+target = {}
+target[searchKeyword] = searchKeywordList
+print(target)
+'''
+
+
+
+if len(sys.argv) > 1:
+    excelFileName = sys.argv[1]
+else:
+    excelFileName = 'downloadImagesMulti.xlsx'
 
 downloadFolder = './img/'
+
+
+
+load_wb = load_workbook('./' + excelFileName, data_only=True)
+get_cells = load_wb['Sheet1']
+
+target = {}
+searchKeywordList = []
+rowNum = 0
+for row in get_cells:
+    rowNum += 1
+    colNum = 1
+    searchKeywordList = []
+    for cell in row:
+        if cell.value:
+            if colNum == 1:
+                searchKeyword = cell.value
+            searchKeywordList.append(cell.value)
+        if len(row) == colNum:
+            target[searchKeyword] = searchKeywordList
+        colNum += 1
+# print(target)
 
 
 
@@ -116,7 +122,8 @@ for k, v in target.items():
                 img = fileUrl.read()
                 fileLocal.write(img)
             n += 1
-            print('download files : ' + fileName, end='\033[K\r')
+            print('download files : ' + fileName, end='\r')
+            # print('download files : ' + fileName, end='\033[K\r')
 
 print('\n' + nameTag + ' 다운로드 완료')
 
@@ -172,7 +179,7 @@ for k, v in target.items():
                 img = fileUrl.read()
                 fileLocal.write(img)
             n += 1
-            print('download files : ' + fileName, end='\033[K\r')
+            print('download files : ' + fileName, end='\r')
 
 print('\n' + nameTag + ' 다운로드 완료')
 
@@ -228,7 +235,7 @@ for k, v in target.items():
                 img = fileUrl.read()
                 fileLocal.write(img)
             n += 1
-            print('download files : ' + fileName, end='\033[K\r')
+            print('download files : ' + fileName, end='\r')
 
 print('\n' + nameTag + ' 다운로드 완료')
 
