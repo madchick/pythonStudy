@@ -1,6 +1,6 @@
 import cv2
 
-img = cv2.imread('01.jpg')
+img = cv2.imread('0101.jpg')
 
 print(img)
 print(img.shape)
@@ -28,7 +28,7 @@ cv2.waitKey(0)
 
 
 
-overlay_img = cv2.imread('0101.png', cv2.IMREAD_UNCHANGED)
+overlay_img = cv2.imread('0102.png', cv2.IMREAD_UNCHANGED)
 overlay_img = cv2.resize(overlay_img, dsize=(150,150))
 
 overlay_alpha = overlay_img[:, :, 3:] / 255.0
