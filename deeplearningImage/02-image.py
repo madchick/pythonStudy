@@ -3,7 +3,7 @@ import numpy as np
 
 net1 = cv2.dnn.readNetFromTorch('instance_norm/mosaic.t7')
 net2 = cv2.dnn.readNetFromTorch('instance_norm/the_scream.t7')
-img = cv2.imread('0203.jpg')
+img = cv2.imread('02-03.jpg')
 
 
 # preprocessing

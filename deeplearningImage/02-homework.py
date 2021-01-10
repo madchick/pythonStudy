@@ -6,7 +6,7 @@ net2 = cv2.dnn.readNetFromTorch('instance_norm/the_scream.t7')
 net3 = cv2.dnn.readNetFromTorch('eccv16/starry_night.t7')
 net4 = cv2.dnn.readNetFromTorch('eccv16/composition_vii.t7')
 
-img = cv2.imread('0204.jpg')
+img = cv2.imread('02-04.jpg')
 
 
 
@@ -78,7 +78,7 @@ cv2.waitKey(0)
 
 
 import cv2
-cap = cv2.VideoCapture('0102.mp4')
+cap = cv2.VideoCapture('01-02.mp4')
 
 while True:
     ret, img = cap.read()

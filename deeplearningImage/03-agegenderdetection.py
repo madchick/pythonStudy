@@ -9,7 +9,7 @@ age_list = ['(0, 2)','(4, 6)','(8, 12)','(15, 20)','(25, 32)','(38, 43)','(48, 5
 gender_net = cv2.dnn.readNetFromCaffe('models/deploy_gender.prototxt', 'models/gender_net.caffemodel')
 age_net = cv2.dnn.readNetFromCaffe('models/deploy_age.prototxt', 'models/age_net.caffemodel')
 
-img = cv2.imread('0302.jpg')
+img = cv2.imread('03-01.jpg')
 h, w, c = img.shape
 
 

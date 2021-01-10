@@ -63,10 +63,10 @@ def detectMask(video):
 
 
 
-detectMask('0301.mp4')
-detectMask('0302.mp4')
-detectMask('0303.mp4')
-detectMask('0304.mp4')
+detectMask('03-01.mp4')
+detectMask('03-02.mp4')
+detectMask('03-03.mp4')
+detectMask('03-04.mp4')
 
 
 
